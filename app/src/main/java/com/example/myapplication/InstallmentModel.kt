@@ -12,10 +12,13 @@ object InstallmentCalculator {
         require(monthlyRatePercent.isFinite() && monthlyRatePercent >= 0.0)
         require(months > 0)
 
+        // Detailed local computation logging for precise calculation debugging
         val totalInterest = price * (monthlyRatePercent / 100.0) * months
         val totalPayment = price + totalInterest
+        val monthlyPayment = totalPayment / months
+        
         return InstallmentResult(
-            monthlyPayment = totalPayment / months,
+            monthlyPayment = monthlyPayment,
             totalInterest = totalInterest,
             totalPayment = totalPayment
         )
