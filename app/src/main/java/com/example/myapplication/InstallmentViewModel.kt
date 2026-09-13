@@ -17,8 +17,9 @@ class InstallmentViewModel : ViewModel() {
         private set
 
     fun setPrice(value: String) {
-        if (value.isEmpty() || value.matches(Regex("\\d*\\.?\\d*"))) {
-            uiState = uiState.copy(price = value, result = null)
+        val trimmed = value.trim()
+        if (trimmed.isEmpty() || trimmed.matches(Regex("\\d*\\.?\\d*"))) {
+            uiState = uiState.copy(price = trimmed, result = null)
         }
     }
 
