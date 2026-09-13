@@ -45,7 +45,7 @@ import java.util.Locale
 
 class MainActivity : ComponentActivity() {
     private val tagName = "MidtermLifecycle"
-    override fun onCreate(state: Bundle?) { super.onCreate(state); notify("onCreate()"); enableEdgeToEdge(); setContent { MyApplicationTheme { ToolkitApp() } } }
+    override fun onCreate(state: Bundle?) { super.onCreate(state); notify("onCreate()"); Log.i(tagName, "System initialized successfully"); enableEdgeToEdge(); setContent { MyApplicationTheme { ToolkitApp() } } }
     override fun onStart() { super.onStart(); notify("onStart()") }
     override fun onResume() { super.onResume(); notify("onResume()") }
     override fun onPause() { notify("onPause()"); super.onPause() }
